@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  include header
+  .content
+    video.video-responsive(src=data.url,controls="controls",autoplay="autoplay")
+    a.btn(href='?p=1') 中继
+  include footer
+
+  

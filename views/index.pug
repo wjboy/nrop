@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  header
+  
+  section.video
+    .cats
+      each item in channals
+        a(href='/page/'+item.key+'/list',class=channal==item.key ? 'active':'') #{item.title}
+      span.op
+        - var n = parseInt(page)
+        -if(page>1)
+          a(href='/page/'+channal+'/list?cat='+cat+'&page='+(n-1)) 上页
+        a(href='/page/'+channal+'/list?cat='+cat+'&page='+(n+1)) 下页
+        div.btn-cat
+
+    .cats.subcats
+      each item in cats
+        a(href='/page/'+channal+'/list?cat='+item.key,class=cat==item.key ? 'active':'') #{item.title}
+      
+    .content
+      ul
+        each item in data
+          li
+            a(href='/page/nrop19/'+item.viewkey)
+              .thumb(style="background-image:url("+item.img+")")
+              .cnt
+                span.title #{item.title}
+  script.
+    $(function(){
+      $('.btn-cat').on('click' , function(){
+        $('.video').toggleClass('show-cats')
+      })
+    })
+
+  
+
+  
